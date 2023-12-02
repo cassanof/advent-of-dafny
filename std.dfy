@@ -40,3 +40,16 @@ method Fold<T, R>(l: seq<T>, f: (T, R) -> R, def: R)
     i := i + 1;
   }
 }
+
+method Filter<T>(l: seq<T>, f: (T) -> bool)
+  returns (res: seq<T>) 
+{
+  res := [];
+  var i := 0;
+  while i < |l| {
+    if f(l[i]) {
+      res := res + [l[i]];
+    }
+    i := i + 1;
+  }
+}
